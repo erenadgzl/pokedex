@@ -40,7 +40,7 @@ class PokemonModel {
   int? candyCount;
   String? egg;
   double? spawnChance;
-  int? avgSpawns;
+  double? avgSpawns;
   String? spawnTime;
   List<double>? multipliers;
   List<String>? weaknesses;
