@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:pokedex/constants/constants.dart';
 
 class AppTitle extends StatelessWidget {
   const AppTitle({Key? key}) : super(key: key);
@@ -9,9 +11,12 @@ class AppTitle extends StatelessWidget {
 
     return Stack(
       children: [
-        const Align(
+        Align(
           alignment: Alignment.topLeft,
-          child: Text("Pokedex"),
+          child: Text(
+            Constants.title,
+            style: Constants.getTitleTextStyle(),
+          ),
         ),
         Align(
             alignment: Alignment.topRight,
