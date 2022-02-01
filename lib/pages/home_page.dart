@@ -9,9 +9,9 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Column(
-        children: [
+        children: const [
           AppTitle(),
-          Expanded(child: const PokemonList()),
+          Expanded(child: PokemonList()),
         ],
       ),
     );

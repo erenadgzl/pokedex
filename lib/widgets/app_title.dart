@@ -22,8 +22,8 @@ class AppTitle extends StatelessWidget {
             alignment: Alignment.topRight,
             child: Image.asset(
               _pokeballImageUrl,
-              width: 100,
-              height: 100,
+              width: 100.w,
+              height: 100.w,
               fit: BoxFit.fitWidth,
             ))
       ],

@@ -17,11 +17,20 @@ class MyApp extends StatelessWidget {
     return ScreenUtilInit(
       designSize: const Size(412, 732),
       builder: () => MaterialApp(
-          debugShowCheckedModeBanner: false,
-          title: Constants.title,
-          theme:
-              ThemeData.dark().copyWith(textTheme: GoogleFonts.latoTextTheme()),
-          home: const HomePage()),
+        debugShowCheckedModeBanner: false,
+        title: Constants.title,
+        theme:
+            ThemeData.dark().copyWith(textTheme: GoogleFonts.latoTextTheme()),
+        home: const HomePage(),
+        builder: (context, widget) {
+          ScreenUtil.setContext(context);
+          return MediaQuery(
+            //Setting font does not change with system font size
+            data: MediaQuery.of(context).copyWith(textScaleFactor: 1.0),
+            child: widget!,
+          );
+        },
+      ),
     );
   }
 }
