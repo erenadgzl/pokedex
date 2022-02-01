@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class Constants {
   Constants._();
@@ -6,16 +7,26 @@ class Constants {
   static const String title = "Pokedex";
 
   static TextStyle getTitleTextStyle() {
-    return const TextStyle(
-        color: Colors.white, fontWeight: FontWeight.bold, fontSize: 48);
+    return TextStyle(
+        color: Colors.white,
+        fontWeight: FontWeight.bold,
+        fontSize: _calculateFontSize(48));
   }
 
   static TextStyle getPokemonNameStyle() {
-    return const TextStyle(
-        color: Colors.white, fontWeight: FontWeight.bold, fontSize: 30);
+    return TextStyle(
+        color: Colors.white,
+        fontWeight: FontWeight.bold,
+        fontSize: _calculateFontSize(30));
   }
 
   static TextStyle getPokemonChipStyle() {
-    return const TextStyle(color: Colors.white, fontSize: 20);
+    return TextStyle(color: Colors.white, fontSize: _calculateFontSize(20));
+  }
+
+  static _calculateFontSize(int size) {
+    return ScreenUtil().orientation == Orientation.portrait
+        ? size.sp
+        : (size * 1.5).sp;
   }
 }
