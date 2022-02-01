@@ -4,7 +4,7 @@ import 'package:pokedex/constants/constants.dart';
 import 'package:pokedex/constants/ui_helper.dart';
 
 class AppTitle extends StatelessWidget {
-  const AppTitle({Key? key}) : super(key: key);
+  AppTitle({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
