@@ -1,16 +1,7 @@
 # pokedex
 
-A new Flutter project.
+A basic Flutter project.
 
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Pokemon List Page          |  Pokemon Detail Page
+:-------------------------:|:-------------------------:
+![](https://user-images.githubusercontent.com/53342974/152252876-00a03714-9023-4fc4-9e61-75fd74949f3e.png)  |  ![](https://user-images.githubusercontent.com/53342974/152252867-0235d76c-89c4-4fb9-a231-cdcb1e6aabb9.png)
