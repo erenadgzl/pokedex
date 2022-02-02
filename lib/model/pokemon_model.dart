@@ -2,6 +2,8 @@
 //
 //     final pokemonModel = pokemonModelFromJson(jsonString);
 
+// ignore_for_file: prefer_if_null_operators, prefer_null_aware_operators
+
 import 'dart:convert';
 
 PokemonModel pokemonModelFromJson(String str) =>
@@ -26,6 +28,7 @@ class PokemonModel {
     this.spawnTime,
     this.multipliers,
     this.weaknesses,
+    this.prevEvolution,
     this.nextEvolution,
   });
 
@@ -44,7 +47,8 @@ class PokemonModel {
   String? spawnTime;
   List<double>? multipliers;
   List<String>? weaknesses;
-  List<NextEvolution>? nextEvolution;
+  List<Evolution>? prevEvolution;
+  List<Evolution>? nextEvolution;
 
   @override
   String toString() {
@@ -67,7 +71,8 @@ class PokemonModel {
         spawnChance: json["spawn_chance"] == null
             ? null
             : json["spawn_chance"].toDouble(),
-        avgSpawns: json["avg_spawns"] == null ? null : json["avg_spawns"],
+        avgSpawns:
+            json["avg_spawns"] == null ? null : json["avg_spawns"].toDouble(),
         spawnTime: json["spawn_time"] == null ? null : json["spawn_time"],
         multipliers: json["multipliers"] == null
             ? null
@@ -75,10 +80,14 @@ class PokemonModel {
         weaknesses: json["weaknesses"] == null
             ? null
             : List<String>.from(json["weaknesses"].map((x) => x)),
+        prevEvolution: json["prev_evolution"] == null
+            ? null
+            : List<Evolution>.from(
+                json["prev_evolution"].map((x) => Evolution.fromJson(x))),
         nextEvolution: json["next_evolution"] == null
             ? null
-            : List<NextEvolution>.from(
-                json["next_evolution"].map((x) => NextEvolution.fromJson(x))),
+            : List<Evolution>.from(
+                json["next_evolution"].map((x) => Evolution.fromJson(x))),
       );
 
   Map<String, dynamic> toJson() => {
@@ -101,14 +110,17 @@ class PokemonModel {
         "weaknesses": weaknesses == null
             ? null
             : List<dynamic>.from(weaknesses!.map((x) => x)),
+        "prev_evolution": prevEvolution == null
+            ? null
+            : List<dynamic>.from(prevEvolution!.map((x) => x.toJson())),
         "next_evolution": nextEvolution == null
             ? null
             : List<dynamic>.from(nextEvolution!.map((x) => x.toJson())),
       };
 }
 
-class NextEvolution {
-  NextEvolution({
+class Evolution {
+  Evolution({
     this.num,
     this.name,
   });
@@ -116,7 +128,7 @@ class NextEvolution {
   String? num;
   String? name;
 
-  factory NextEvolution.fromJson(Map<String, dynamic> json) => NextEvolution(
+  factory Evolution.fromJson(Map<String, dynamic> json) => Evolution(
         num: json["num"] == null ? null : json["num"],
         name: json["name"] == null ? null : json["name"],
       );
@@ -125,4 +137,9 @@ class NextEvolution {
         "num": num == null ? null : num,
         "name": name == null ? null : name,
       };
+
+  @override
+  String toString() {
+    return '$name';
+  }
 }

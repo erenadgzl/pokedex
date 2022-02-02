@@ -38,6 +38,12 @@ class UIHelper {
         : EdgeInsets.all(8.w);
   }
 
+  static EdgeInsets getIconPadding() {
+    return ScreenUtil().orientation == Orientation.portrait
+        ? EdgeInsets.all(12.h)
+        : EdgeInsets.all(8.w);
+  }
+
   static double calculatePokemonImageAndBallSize() {
     return ScreenUtil().orientation == Orientation.portrait ? 0.2.sw : 0.3.sh;
   }
